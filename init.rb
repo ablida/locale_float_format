@@ -1,10 +1,10 @@
 Redmine::Plugin.register :locale_float_format do
   name 'Locale Float Format plugin'
-  author 'bokos'
+  author 'ablida'
   description 'Enables input and display of float custom fields with decimal separator set in locale.'
-  version '0.0.4'
-  url 'https://github.com/bokos/locale_float_format'
-  author_url 'https://github.com/bokos/locale_float_format'
+  version '0.0.5'
+  url 'https://github.com/ablida/locale_float_format'
+  author_url 'https://github.com/ablida'
 
   RedmineApp::Application.config.after_initialize do
     Issue.send(:include, LocaleFloatFormat::IssuePatch)

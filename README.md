@@ -1,43 +1,59 @@
-# Locale Float Format
+# Redmine Locale Float Format
 
-## Overview
-
-Redmine plugin. Enables input and display of float custom fields with decimal separator set in locale.
+A small [Redmine](https://www.redmine.org/) plugin that lets users enter and see float custom fields with the decimal separator of their language.
 
 ## Introduction
 
-[Redmine](http://www.redmine.org) with its functionality offers almost everything you need, we just had to extend the functionality for our internal needs, and this plugin was the result.
+Redmine offers almost everything we need out of the box. We only had to extend it a little for our internal needs, and this plugin was the result.
 
 ## Features
 
-Enables input and display of custom float fields with decimal seperator set in locale.
+Redmine always uses a dot as decimal separator for float custom fields, regardless of the user's language. With this plugin, the separator and thousands delimiter defined in the locale (`number.format.separator` and `number.format.delimiter`) are used instead, e.g. `1.234,50` in German or `1,234.50` in English.
 
-- number.format.separator
+**Without plugin:**
 
-#### Without plugin:
-![](screenshots/example-float-without-plugin.png "Screenshot of example float field without plugin.")
+![Example float field without plugin](screenshots/example-float-without-plugin.png)
 
-#### With plugin:
-![](screenshots/example-float-with-plugin.png "Screenshot of example float field with plugin.")
+**With plugin:**
+
+![Example float field with plugin](screenshots/example-float-with-plugin.png)
+
+The locale format is supported in:
+
+- display of float values (shown with two decimal places)
+- input fields of float custom fields, including bulk edit
+- query filters on float custom fields
+- copying issues and projects
+
+Values are still stored in Redmine's standard format, so existing data stays untouched.
 
 ## Installation
 
-To install the plugin, either clone it or download it and  xtract the directory into ur plugins directory in your redmine dir.
+1. Clone the plugin into the `plugins` directory of your Redmine installation. The directory name must be `locale_float_format`, as it has to match the plugin ID:
 
-    git clone https://github.com/ablidadev/redmine_locale_float_format.git
-    move redmine_locale_float_format into redmine/plugins/.
+   ```bash
+   cd /path/to/redmine/plugins
+   git clone https://github.com/ablida/locale_float_format.git
+   ```
 
-More information on installing Redmine plugins can be found here: [Redmine Plugins](http://www.redmine.org/wiki/redmine/Plugins)
+   Alternatively, download the repository as a ZIP and extract it to `plugins/locale_float_format`.
 
-After the plugin is installed, you will need to restart Redmine for the plugin to be available.
+2. Restart Redmine.
 
-## How to actually use the plugin
+No database migrations are required. More information on installing Redmine plugins: [Redmine Plugins](https://www.redmine.org/projects/redmine/wiki/Plugins).
 
-### Overview
+## Usage
 
-Once you have installed the Redmine locale_float_format properly, you do not need to make any further configurations, it will work seamlessly when the page is reloaded.
+No configuration is needed. After the restart, float custom fields use the format of each user's language.
 
+## Uninstallation
 
-### About
+Remove the `plugins/locale_float_format` directory and restart Redmine.
 
-* Copyright (c) 2021-2022 bokos, original author.
+## License
+
+This plugin is licensed under the [GNU General Public License v2.0](LICENSE), unless otherwise stated.
+
+## About
+
+Copyright (c) 2021–2026 ablida
